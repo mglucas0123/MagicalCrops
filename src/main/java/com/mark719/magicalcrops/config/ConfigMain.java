@@ -1,0 +1,93 @@
+package com.mark719.magicalcrops.config;
+
+import java.io.*;
+import net.minecraftforge.common.config.*;
+
+public class ConfigMain
+{
+    public static boolean essOreOverworld;
+    public static boolean essOreNether;
+    public static boolean essOreEnd;
+    public static int maxVeinSize;
+    public static int maxVeinSizeNether;
+    public static int maxVeinSizeEnd;
+    public static int oreGenerateYCord;
+    public static int SECOND_SEED_CHANCE;
+    public static int WEAK_DURABILITY;
+    public static int REGULAR_DURABILITY;
+    public static int STRONG_DURABILITY;
+    public static int EXTREME_DURABILITY;
+    public static int SEED_OUTPUT;
+    public static int ACCIO_MUTATION;
+    public static int CRUCIO_MUTATION;
+    public static int IMPERIO_MUTATION;
+    public static int ZIVICIO_MUTATION;
+    public static int ESSENCE_INGOTS;
+    public static int DRGAON_ESS_DROP_AMOUNT;
+    public static int WITHER_ESS_DROP_AMOUNT;
+    public static int HOSTILE_DROP_CHANCE;
+    public static int PASSIVE_DROP_CHANCE;
+    public static boolean CROP_EFFECTS;
+    public static boolean PLANT_ON_BREAK;
+    public static boolean INFUSION_DURABILITY;
+    public static boolean CROP_MUTATION;
+    public static boolean ENCHANT_CRAFT;
+    public static boolean EXTRA_PICKAXE;
+    public static boolean EXTRA_HOE;
+    public static boolean CROP_DAMAGE;
+    public static boolean DRAGON_ESS_DROP;
+    public static boolean WITHER_ESS_DROP;
+    public static boolean HOSTILE_ESS_DROP;
+    public static boolean PASSIVE_ESS_DROP;
+    public static boolean MOB_ESS_DROP;
+    public static boolean APPLES;
+    public static boolean ARMOUR_FLIGHT;
+
+    public static void init(final File configFile) {
+        final Configuration config = new Configuration(configFile);
+        config.load();
+        ConfigMain.MOB_ESS_DROP = config.get("monster drop options", "Can mobs drop essence on death (universal switch for all mobs), default true", true).getBoolean();
+        ConfigMain.DRAGON_ESS_DROP = config.get("monster drop options", "Ender dragon drops Zivicio essence when killed, default true", true).getBoolean();
+        ConfigMain.WITHER_ESS_DROP = config.get("monster drop options", "Wither drops Zivicio essence when killed, default true", true).getBoolean();
+        ConfigMain.HOSTILE_ESS_DROP = config.get("monster drop options", "Monsters e.g. Zombies, Skeletons and Creepers, drop Minicio essence when killed, default true", true).getBoolean();
+        ConfigMain.PASSIVE_ESS_DROP = config.get("monster drop options", "Animals e.g. Pigs, Sheep and Chickens, drop Minicio essence when killed, default true", true).getBoolean();
+        ConfigMain.HOSTILE_DROP_CHANCE = config.get("monster drop options", "Chance of monsters dropping Minicio essence when killed in percent, default 20", 20).getInt();
+        ConfigMain.PASSIVE_DROP_CHANCE = config.get("monster drop options", "Chance of animals dropping Minicio essence when killed in percent, default 10", 10).getInt();
+        ConfigMain.DRGAON_ESS_DROP_AMOUNT = config.get("monster drop options", "If they can, how many zivicio dusts should Ender Dragons drop when killed, default 4", 4).getInt();
+        ConfigMain.WITHER_ESS_DROP_AMOUNT = config.get("monster drop options", "If they can, how many zivicio dusts should the Wither Boss drop when killed, default 2", 2).getInt();
+        config.getCategory("essence ore options");
+        ConfigMain.essOreOverworld = config.get("essence ore options", "Essence ore spawns in the overworld", true).getBoolean();
+        ConfigMain.essOreNether = config.get("essence ore options", "Nether Essence ore spawns in the nether", true).getBoolean();
+        ConfigMain.essOreEnd = config.get("essence ore options", "End Essence ore spawns in the end", true).getBoolean();
+        ConfigMain.maxVeinSize = config.get("essence ore options", "Edit max amount of Essence ore that can generate per vein, default = 4", 4).getInt();
+        ConfigMain.maxVeinSizeNether = config.get("essence ore options", "Edit max amount of Nether Essence ore that can generate per vein, default = 6", 6).getInt();
+        ConfigMain.maxVeinSizeEnd = config.get("essence ore options", "Edit max amount of End Essence ore that can generate per vein, default = 4", 4).getInt();
+        ConfigMain.oreGenerateYCord = config.get("essence ore options", "Edit the number to change the Y Cord that essence ore starts generating in the overworld, default = 45", 45).getInt();
+        config.getCategory("crop options");
+        ConfigMain.CROP_EFFECTS = config.get("crop options", "Magical crops display particle effects, default true", true).getBoolean();
+        ConfigMain.PLANT_ON_BREAK = config.get("crop options", "Magical crops when broke/harvested re-plant themselves, default true", true).getBoolean();
+        ConfigMain.CROP_DAMAGE = config.get("crop options", "Magical Crops deal Magic damage when walked on, default true", true).getBoolean();
+        config.getCategory("seed options");
+        ConfigMain.SECOND_SEED_CHANCE = config.get("seed options", "Number in percent for the chance of getting a second seed from Magical Crops, 0 = disabled, default = 10, Max = 100", 10).getInt();
+        ConfigMain.SEED_OUTPUT = config.get("seed options", "Number of seeds you get from crafting, default 1, Max 64", 1).getInt();
+        config.getCategory("infusion stone options");
+        ConfigMain.INFUSION_DURABILITY = config.get("infusion stone options", "1 Infusion stones have durability", true).getBoolean();
+        ConfigMain.WEAK_DURABILITY = config.get("infusion stone options", "2 Durability of the weak infusion stone", 256).getInt();
+        ConfigMain.REGULAR_DURABILITY = config.get("infusion stone options", "3 Durability of the regular infusion stone", 512).getInt();
+        ConfigMain.STRONG_DURABILITY = config.get("infusion stone options", "4 Durability of the strong infusion stone", 1024).getInt();
+        ConfigMain.EXTREME_DURABILITY = config.get("infusion stone options", "5 Durability of the extreme infusion stone", 2048).getInt();
+        config.getCategory("mutation options");
+        ConfigMain.CROP_MUTATION = config.get("mutation options", "1 Do crops mutate to gain magical seeds, default true", true).getBoolean();
+        ConfigMain.ACCIO_MUTATION = config.get("mutation options", "2 Mutation chance for accio based crops, e.g. Coal, default 25, max 100", 25).getInt();
+        ConfigMain.CRUCIO_MUTATION = config.get("mutation options", "3 Mutation chance for crucio based crops, e.g. redstone, default 25, max 100", 25).getInt();
+        ConfigMain.IMPERIO_MUTATION = config.get("mutation options", "4 Mutation chance for imperio based crops, e.g. gold, default 25, max 100", 25).getInt();
+        ConfigMain.ZIVICIO_MUTATION = config.get("mutation options", "5 Mutation chance for zivicio based crops, e.g. diamond, default 25, max 100", 25).getInt();
+        ConfigMain.ENCHANT_CRAFT = config.get("misc options", "You can use essence to craft enchanting books, default true", true).getBoolean();
+        ConfigMain.EXTRA_PICKAXE = config.get("misc options", "Accio, Crucio, Imperio & Zivicio Pickaxes give extra drops when mining Minicio Ores, default true", true).getBoolean();
+        ConfigMain.EXTRA_HOE = config.get("misc options", "Accio, Crucio, Imperio & Zivicio Hoes give extra drops when harvesting Minicio Crops, default true", true).getBoolean();
+        ConfigMain.ESSENCE_INGOTS = config.get("misc options", "How many Essence ingots do you get when crafted, default 3, Max 64", 3).getInt();
+        ConfigMain.APPLES = config.get("misc options", "Ultimate Diamond, Emerald and Ultimate Apple apples are active, default true", true).getBoolean();
+        ConfigMain.ARMOUR_FLIGHT = config.get("misc options", "A Armadura completa de Zivicio lhe da o Voo Criativo, default true", true).getBoolean();
+        config.save();
+    }
+}
