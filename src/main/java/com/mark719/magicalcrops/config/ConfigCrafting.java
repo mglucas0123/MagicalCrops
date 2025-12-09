@@ -87,6 +87,7 @@ public class ConfigCrafting
     public static int outPutSteel;
     public static int outPutTerrasteel;
     public static int outPutAwakenedDraconium;
+    public static int outPutChaosShard;
     
     public static void init(final File configFile) {
         final Configuration config = new Configuration(configFile);
@@ -172,6 +173,8 @@ public class ConfigCrafting
         ConfigCrafting.outPutSteel = config.get("output_4 mod compat", "Steel Ingot, default 2, Max 64, Min 1", 2).getInt();
         ConfigCrafting.outPutTerrasteel = config.get("output_4 mod compat", "Terrasteel Ingot, default 1, Max 64, Min 1", 1).getInt();
         ConfigCrafting.outPutAwakenedDraconium = config.get("output_4 mod compat", "Awakened Draconium Ingot, default 1, Max 64, Min 1", 1).getInt();
+        ConfigCrafting.outPutChaosShard = config.get("output_4 mod compat", "Chaos Shard, default 1, Max 64, Min 1", 1).getInt();
+        
         config.save();
     }
 }

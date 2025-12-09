@@ -71,6 +71,7 @@ public class ConfigDisable
     public static boolean STEEL;
     public static boolean TERRASTEEL;
     public static boolean AWAKENED_DRACONIUM;
+    public static boolean CHAOS_SHARD;
     
     public static void init(final File configFile) {
         final Configuration config = new Configuration(configFile);
@@ -138,6 +139,7 @@ public class ConfigDisable
         ConfigDisable.STEEL = config.get(ConfigDisable.MOD, "STEEL CROP", true).getBoolean();
         ConfigDisable.TERRASTEEL = config.get(ConfigDisable.MOD, "TERRASTEEL CROP", true).getBoolean();
         ConfigDisable.AWAKENED_DRACONIUM = config.get(ConfigDisable.MOD, "AWAKENED DRACONIUM CROP", true).getBoolean();
+        ConfigDisable.CHAOS_SHARD = config.get(ConfigDisable.MOD, "CHAOS SHARD CROP", true).getBoolean();
         config.save();
     }
     

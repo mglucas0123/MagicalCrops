@@ -118,6 +118,9 @@ public class ModCompat
     public static Item AwakenedDraconiumSeeds;
     public static Item AwakenedDraconiumEssence;
     public static Block AwakenedDraconiumCrop;
+    public static Item ChaosShardSeeds;
+    public static Item ChaosShardEssence;
+    public static Block ChaosShardCrop;
     
     public static void loadCompat() {
         if (ConfigDisable.ALUMINIUM && OreCheck.getModOre("oreAluminium") != null && OreCheck.getModOre("ingotAluminium") != null) {
@@ -417,6 +420,10 @@ public class ModCompat
             ItemRegisterHelper.registerItem(ModCompat.TerrasteelSeeds);
             registerCompatRecipes(ModCompat.TerrasteelSeeds, ModCompat.TerrasteelEssence, ModCompat.zivicioEssence, "ingotTerrasteel", "blockTerrasteel", OreCheck.getModOre("ingotTerrasteel"), ConfigCrafting.outPutTerrasteel, "zivicioMaterial");
         }
+
+        // Ensure Draconic Evolution items are in OreDict
+        registerOreDictIfMissing("DraconicEvolution", "chaosShard", "chaosShard");
+
         if (ConfigDisable.AWAKENED_DRACONIUM && OreCheck.getModOre("ingotDraconiumAwakened") != null) {
             ModCompat.AwakenedDraconiumEssence = new AwakenedDraconiumEssence().setUnlocalizedName("AwakenedDraconiumEssence");
             ModCompat.AwakenedDraconiumCrop = new AwakenedDraconiumCrop().setBlockName("AwakenedDraconiumCrop");
@@ -424,13 +431,45 @@ public class ModCompat
             ItemRegisterHelper.registerItem(ModCompat.AwakenedDraconiumEssence);
             BlockRegisterHelper.registerBlock(ModCompat.AwakenedDraconiumCrop);
             ItemRegisterHelper.registerItem(ModCompat.AwakenedDraconiumSeeds);
-            
             registerCompatRecipes(ModCompat.AwakenedDraconiumSeeds, ModCompat.AwakenedDraconiumEssence, ModCompat.zivicioEssence, "ingotDraconiumAwakened", "blockDraconiumAwakened", OreCheck.getModOre("ingotDraconiumAwakened"), ConfigCrafting.outPutAwakenedDraconium, "awakenedDraconiumMaterial");
+        }
+        if (ConfigDisable.CHAOS_SHARD && OreCheck.getModOre("chaosShard") != null) {
+            ModCompat.ChaosShardEssence = new ChaosShardEssence().setUnlocalizedName("ChaosShardEssence");
+            ModCompat.ChaosShardCrop = new ChaosShardCrop().setBlockName("ChaosShardCrop");
+            ModCompat.ChaosShardSeeds = new ChaosShardSeeds(ModCompat.ChaosShardCrop, ModCompat.farmland).setTextureName("magicalcrops:seeds_chaosshard").setUnlocalizedName("ChaosShardSeeds");
+            ItemRegisterHelper.registerItem(ModCompat.ChaosShardEssence);
+            BlockRegisterHelper.registerBlock(ModCompat.ChaosShardCrop);
+            ItemRegisterHelper.registerItem(ModCompat.ChaosShardSeeds);
+            
+            ItemStack chaosFragmentStack = null;
+            ItemStack normalChaosFragmentStack = null;
+            Item fragmentItem = GameRegistry.findItem("DraconicEvolution", "chaosFragment");
+            if (fragmentItem != null) {
+                // Tiny Chaos Fragment has metadata 0
+                chaosFragmentStack = new ItemStack(fragmentItem, 1, 0);
+                // Large Chaos Fragment has metadata 2
+                normalChaosFragmentStack = new ItemStack(fragmentItem, 1, 2);
+            }
+            
+            Object normalInput = (normalChaosFragmentStack != null) ? normalChaosFragmentStack : "chaosShard";
+            ItemStack resultItem = (chaosFragmentStack != null) ? chaosFragmentStack : OreCheck.getModOre("chaosShard");
+            
+            registerCompatRecipes(ModCompat.ChaosShardSeeds, ModCompat.ChaosShardEssence, ModCompat.zivicioEssence, normalInput, "chaosShard", resultItem, ConfigCrafting.outPutChaosShard, "chaosShardMaterial");
+        }
+    }
+
+    // Helper method to register missing OreDict entries
+    private static void registerOreDictIfMissing(String modId, String itemName, String oreDictName) {
+        if (OreCheck.getModOre(oreDictName) == null) {
+            Item item = GameRegistry.findItem(modId, itemName);
+            if (item != null) {
+                OreDictionary.registerOre(oreDictName, new ItemStack(item));
+            }
         }
     }
 
     // Helper method to register recipes and ore dictionary entries
-    private static void registerCompatRecipes(Item seed, Item essence, Item tierEssence, String normalItem, String hardItem, ItemStack resultItem, int resultAmount, String oreDictCategory) {
+    private static void registerCompatRecipes(Item seed, Item essence, Item tierEssence, Object normalItem, Object hardItem, ItemStack resultItem, int resultAmount, String oreDictCategory) {
         Object craftingMaterial = ConfigMain.HARD_MODE ? hardItem : normalItem;
         // Register recipe for seeds
         GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(seed, seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', tierEssence, 'Y', craftingMaterial, 'Z', minicioSeeds }));

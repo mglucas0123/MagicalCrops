@@ -129,6 +129,7 @@ tile.SignalumCrop.name=Signalum Crop
 tile.SteelCrop.name=Steel Crop
 tile.TerrasteelCrop.name=Terrasteel Crop
 tile.AwakenedDraconiumCrop.name=Awakened Draconium Crop
+tile.ChaosShard.name=Chaos Shard Crop
 
 tile.CropAbsorption.name=Absorption Crop
 tile.CropFireResistance.name=Fire Resistance Crop
@@ -239,6 +240,7 @@ item.SignalumEssence.name=Signalum Essence
 item.SteelEssence.name=Steel Essence
 item.TerrasteelEssence.name=Terrasteel Essence
 item.AwakenedDraconiumEssence.name=Awakened Draconium Essence
+item.ChaosShardEssence.name=Chaos Shard Essence
 
 item.InfusionStoneWeak.name=Weak Infusion Stone
 item.InfusionStoneRegular.name=Regular Infusion Stone
@@ -301,6 +303,7 @@ item.SignalumSeeds.name=Signalum Seeds
 item.SteelSeeds.name=Steel Seeds
 item.TerrasteelSeeds.name=Terrasteel Seeds
 item.AwakenedDraconiumSeeds.name=Awakened Draconium Seeds
+item.ChaosShardSeeds.name=Chaos Shard Seeds
 
 item.BlazeSeeds.name=Blaze Seeds
 item.ChickenSeeds.name=Chicken Seeds

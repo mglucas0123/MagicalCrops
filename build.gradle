@@ -23,7 +23,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.1.0"
+version = "1.1.1"
 group= "com.mark719" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "magicalcrops"
 targetCompatibility = sourceCompatibility = JavaVersion.VERSION_1_8;

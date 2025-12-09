@@ -2,13 +2,13 @@
 {
   "modid": "magicalcrops",
   "name": "Magical Crops Reforged",
-  "description": "Mod Adaptado para os Servidores da Rede MGZCraft",
-  "version": "1.1.0",
+  "description": "Adapted Magical Crops Mod for MGZCraft Network. Fix dupe glitches and add more content.",
+  "version": "1.1.1",
   "mcversion": "1.7.10",
   "url": "http://minecraft.curseforge.com/mc-mods/228834-magical-crops",
   "updateUrl": "",
   "authorList": ["Mark719", "Mglucas0123", "RenanOSX"],
-  "credits": "Mark719, Por criar essse mod.",
+  "credits": "Mark719, For creating this mod.",
   "logoFile": "assets/magicalcrops/textures/magical_title.png",
   "screenshots": [],
   "dependencies": []
