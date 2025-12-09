@@ -115,6 +115,9 @@ public class ModCompat
     public static Item SignalumSeeds;
     public static Item SteelSeeds;
     public static Item TerrasteelSeeds;
+    public static Item AwakenedDraconiumSeeds;
+    public static Item AwakenedDraconiumEssence;
+    public static Block AwakenedDraconiumCrop;
     
     public static void loadCompat() {
         if (ConfigDisable.ALUMINIUM && OreCheck.getModOre("oreAluminium") != null && OreCheck.getModOre("ingotAluminium") != null) {
@@ -125,7 +128,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.AluminiumCrop);
             ItemRegisterHelper.registerItem(ModCompat.AluminiumSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotAluminium");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AluminiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "ingotAluminium", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotAluminium";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockAluminium";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AluminiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreAluminium");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutAluminium, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.AluminiumEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AluminiumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.AluminiumSeeds }));
@@ -139,7 +146,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.ArditeCrop);
             ItemRegisterHelper.registerItem(ModCompat.ArditeSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotArdite");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ArditeSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotArdite", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotArdite";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockArdite";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ArditeSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreArdite");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutArdite, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ArditeEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ArditeEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ArditeSeeds }));
@@ -153,7 +164,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.CobaltCrop);
             ItemRegisterHelper.registerItem(ModCompat.CobaltSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotCobalt");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CobaltSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', "ingotCobalt", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotCobalt";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockCobalt";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CobaltSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreCobalt");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutCobalt, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.CobaltEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CobaltEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.CobaltSeeds }));
@@ -167,7 +182,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.CopperCrop);
             ItemRegisterHelper.registerItem(ModCompat.CopperSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotCopper");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CopperSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "ingotCopper", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotCopper";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockCopper";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CopperSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreCopper");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutCopper, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.CopperEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CopperEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.CopperSeeds }));
@@ -181,7 +200,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.CertusQuartzCrop);
             ItemRegisterHelper.registerItem(ModCompat.CertusQuartzSeeds);
             final ItemStack modIngot = OreCheck.getModOre("crystalCertusQuartz");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CertusQuartzSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "crystalCertusQuartz", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "crystalCertusQuartz";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockCertusQuartz";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CertusQuartzSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreCertusQuartz");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutCertusQuartz, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.CertusQuartzEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.CertusQuartzEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.CertusQuartzSeeds }));
@@ -195,7 +218,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.LeadCrop);
             ItemRegisterHelper.registerItem(ModCompat.LeadSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotLead");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.LeadSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "ingotLead", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotLead";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockLead";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.LeadSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreLead");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutLead, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.LeadEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.LeadEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.LeadSeeds }));
@@ -209,7 +236,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.NickelCrop);
             ItemRegisterHelper.registerItem(ModCompat.NickelSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotNickel");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.NickelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotNickel", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotNickel";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockNickel";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.NickelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreNickel");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutNickel, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.NickelEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.NickelEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.NickelSeeds }));
@@ -223,7 +254,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.OsmiumCrop);
             ItemRegisterHelper.registerItem(ModCompat.OsmiumSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotOsmium");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.OsmiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotOsmium", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotOsmium";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockOsmium";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.OsmiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreOsmium");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutOsmium, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.OsmiumEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.OsmiumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.OsmiumSeeds }));
@@ -237,7 +272,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.PeridotCrop);
             ItemRegisterHelper.registerItem(ModCompat.PeridotSeeds);
             final ItemStack modIngot = OreCheck.getModOre("gemPeridot");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.PeridotSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "gemPeridot", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "gemPeridot";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockPeridot";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.PeridotSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutPeridot, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.PeridotEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.PeridotEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.PeridotSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.PeridotEssence));
@@ -250,7 +289,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.RubyCrop);
             ItemRegisterHelper.registerItem(ModCompat.RubySeeds);
             final ItemStack modIngot = OreCheck.getModOre("gemRuby");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.RubySeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "gemRuby", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "gemRuby";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockRuby";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.RubySeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutRuby, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.RubyEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.RubyEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.RubySeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.RubyEssence));
@@ -263,7 +306,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.SapphireCrop);
             ItemRegisterHelper.registerItem(ModCompat.SapphireSeeds);
             final ItemStack modIngot = OreCheck.getModOre("gemSapphire");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SapphireSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "gemSapphire", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "gemSapphire";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockSapphire";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SapphireSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutSapphire, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SapphireEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SapphireEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SapphireSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.SapphireEssence));
@@ -276,7 +323,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.PlatinumCrop);
             ItemRegisterHelper.registerItem(ModCompat.PlatinumSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotPlatinum");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.PlatinumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', "ingotPlatinum", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotPlatinum";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockPlatinum";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.PlatinumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutPlatinum, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.PlatinumEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.PlatinumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.PlatinumSeeds }));
             OreDictionary.registerOre("zivicioMaterial", new ItemStack(ModCompat.PlatinumEssence));
@@ -289,7 +340,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.RubberCrop);
             ItemRegisterHelper.registerItem(ModCompat.RubberSeeds);
             final ItemStack modIngot = OreCheck.getModOre("itemRawRubber");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.RubberSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.accioEssence, 'Y', "itemRawRubber", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "itemRawRubber";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockRubber";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.RubberSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.accioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutRubber, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.RubberEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.RubberEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.RubberSeeds }));
             OreDictionary.registerOre("accioMaterial", new ItemStack(ModCompat.RubberEssence));
@@ -302,7 +357,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.SilverCrop);
             ItemRegisterHelper.registerItem(ModCompat.SilverSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotSilver");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SilverSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotSilver", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotSilver";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockSilver";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SilverSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreSilver");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutSilver, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SilverEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SilverEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SilverSeeds }));
@@ -316,7 +375,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.TinCrop);
             ItemRegisterHelper.registerItem(ModCompat.TinSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotTin");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.TinSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "ingotTin", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotTin";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockTin";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.TinSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreTin");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutTin, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.TinEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.TinEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.TinSeeds }));
@@ -330,7 +393,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.SulfurCrop);
             ItemRegisterHelper.registerItem(ModCompat.SulfurSeeds);
             final ItemStack modIngot = OreCheck.getModOre("dustSulfur");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SulfurSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "dustSulfur", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "dustSulfur";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockSulfur";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SulfurSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutSulfur, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SulfurEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SulfurEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SulfurSeeds }));
             OreDictionary.registerOre("crucioMaterial", new ItemStack(ModCompat.SulfurEssence));
@@ -343,7 +410,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.YelloriteCrop);
             ItemRegisterHelper.registerItem(ModCompat.YelloriteSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotYellorium");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.YelloriteSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotYellorium", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotYellorium";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockYellorium";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.YelloriteSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             final ItemStack modOre = OreCheck.getModOre("oreYellorite");
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modOre.getItem(), ConfigCrafting.outPutYellorite, modOre.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.YelloriteEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.YelloriteEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.YelloriteSeeds }));
@@ -357,7 +428,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.AlumiteCrop);
             ItemRegisterHelper.registerItem(ModCompat.AlumiteSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotAlumite");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AlumiteSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotAlumite", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotAlumite";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockAlumite";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AlumiteSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutAlumite, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.AlumiteEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AlumiteEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.AlumiteSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.AlumiteEssence));
@@ -370,7 +445,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.BlizzCrop);
             ItemRegisterHelper.registerItem(ModCompat.BlizzSeeds);
             final ItemStack modIngot = OreCheck.getModOre("rodBlizz");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.BlizzSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "rodBlizz", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "rodBlizz";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockBlizz";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.BlizzSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutBlizz, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.BlizzEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.BlizzEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.BlizzSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.BlizzEssence));
@@ -383,7 +462,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.BronzeCrop);
             ItemRegisterHelper.registerItem(ModCompat.BronzeSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotBronze");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.BronzeSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "ingotBronze", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotBronze";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockBronze";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.BronzeSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutBronze, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.BronzeEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.BronzeEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.BronzeSeeds }));
             OreDictionary.registerOre("crucioMaterial", new ItemStack(ModCompat.BronzeEssence));
@@ -396,7 +479,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.ElectrumCrop);
             ItemRegisterHelper.registerItem(ModCompat.ElectrumSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotElectrum");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ElectrumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotElectrum", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotElectrum";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockElectrum";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ElectrumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutElectrum, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ElectrumEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ElectrumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ElectrumSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.ElectrumEssence));
@@ -409,7 +496,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.EnderiumCrop);
             ItemRegisterHelper.registerItem(ModCompat.EnderiumSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotEnderium");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.EnderiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', "ingotEnderium", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotEnderium";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockEnderium";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.EnderiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutEnderium, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.EnderiumEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.EnderiumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.EnderiumSeeds }));
             OreDictionary.registerOre("zivicioMaterial", new ItemStack(ModCompat.EnderiumEssence));
@@ -422,7 +513,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.FluixCrop);
             ItemRegisterHelper.registerItem(ModCompat.FluixSeeds);
             final ItemStack modIngot = OreCheck.getModOre("crystalFluix");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.FluixSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "crystalFluix", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "crystalFluix";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockFluix";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.FluixSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutFluix, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.FluixEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.FluixEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.FluixSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.FluixEssence));
@@ -435,7 +530,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.InvarCrop);
             ItemRegisterHelper.registerItem(ModCompat.InvarSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotInvar");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.InvarSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotInvar", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotInvar";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockInvar";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.InvarSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutInvar, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.InvarEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.InvarEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.InvarSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.InvarEssence));
@@ -448,7 +547,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.LumiumCrop);
             ItemRegisterHelper.registerItem(ModCompat.LumiumSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotLumium");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.LumiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotLumium", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotLumium";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockLumium";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.LumiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutLumium, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.LumiumEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.LumiumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.LumiumSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.LumiumEssence));
@@ -461,7 +564,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.ManasteelCrop);
             ItemRegisterHelper.registerItem(ModCompat.ManasteelSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotManasteel");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ManasteelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "ingotManasteel", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotManasteel";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockManasteel";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ManasteelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutManasteel, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ManasteelEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ManasteelEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ManasteelSeeds }));
             OreDictionary.registerOre("crucioMaterial", new ItemStack(ModCompat.ManasteelEssence));
@@ -474,7 +581,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.ManyullynCrop);
             ItemRegisterHelper.registerItem(ModCompat.ManyullynSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotManyullyn");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ManyullynSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', "ingotManyullyn", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotManyullyn";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockManyullyn";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ManyullynSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutManyullyn, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ManyullynEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.ManyullynEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.ManyullynSeeds }));
             OreDictionary.registerOre("zivicioMaterial", new ItemStack(ModCompat.ManyullynEssence));
@@ -487,7 +598,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.SaltpeterCrop);
             ItemRegisterHelper.registerItem(ModCompat.SaltpeterSeeds);
             final ItemStack modIngot = OreCheck.getModOre("dustSaltpeter");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SaltpeterSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', "dustSaltpeter", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "dustSaltpeter";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockSaltpeter";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SaltpeterSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.crucioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutSaltpeter, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SaltpeterEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SaltpeterEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SaltpeterSeeds }));
             OreDictionary.registerOre("crucioMaterial", new ItemStack(ModCompat.SaltpeterEssence));
@@ -500,7 +615,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.SignalumCrop);
             ItemRegisterHelper.registerItem(ModCompat.SignalumSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotSignalum");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SignalumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotSignalum", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotSignalum";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockSignalum";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SignalumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutSignalum, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SignalumEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SignalumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SignalumSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.SignalumEssence));
@@ -513,7 +632,11 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.SteelCrop);
             ItemRegisterHelper.registerItem(ModCompat.SteelSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotSteel");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SteelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', "ingotSteel", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotSteel";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockSteel";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SteelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.imperioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutSteel, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SteelEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.SteelEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.SteelSeeds }));
             OreDictionary.registerOre("imperioMaterial", new ItemStack(ModCompat.SteelEssence));
@@ -526,10 +649,32 @@ public class ModCompat
             BlockRegisterHelper.registerBlock(ModCompat.TerrasteelCrop);
             ItemRegisterHelper.registerItem(ModCompat.TerrasteelSeeds);
             final ItemStack modIngot = OreCheck.getModOre("ingotTerrasteel");
-            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.TerrasteelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', "ingotTerrasteel", 'Z', ModCompat.minicioSeeds }));
+            Object craftingMaterial = "ingotTerrasteel";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockTerrasteel";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.TerrasteelSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutTerrasteel, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.TerrasteelEssence }));
             GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.TerrasteelEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.TerrasteelSeeds }));
             OreDictionary.registerOre("zivicioMaterial", new ItemStack(ModCompat.TerrasteelEssence));
+        }
+        if (ConfigDisable.AWAKENED_DRACONIUM && OreCheck.getModOre("ingotDraconiumAwakened") != null) {
+            ModCompat.AwakenedDraconiumEssence = new AwakenedDraconiumEssence().setUnlocalizedName("AwakenedDraconiumEssence");
+            ModCompat.AwakenedDraconiumCrop = new AwakenedDraconiumCrop().setBlockName("AwakenedDraconiumCrop");
+            ModCompat.AwakenedDraconiumSeeds = new AwakenedDraconiumSeeds(ModCompat.AwakenedDraconiumCrop, ModCompat.farmland).setTextureName("magicalcrops:seeds_awakeneddraconium").setUnlocalizedName("AwakenedDraconiumSeeds");
+            ItemRegisterHelper.registerItem(ModCompat.AwakenedDraconiumEssence);
+            BlockRegisterHelper.registerBlock(ModCompat.AwakenedDraconiumCrop);
+            ItemRegisterHelper.registerItem(ModCompat.AwakenedDraconiumSeeds);
+            
+            final ItemStack modIngot = OreCheck.getModOre("ingotDraconiumAwakened");
+            Object craftingMaterial = "ingotDraconiumAwakened";
+            if (ConfigMain.HARD_MODE) {
+                craftingMaterial = "blockDraconiumAwakened";
+            }
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AwakenedDraconiumSeeds, ModCompat.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', ModCompat.zivicioEssence, 'Y', craftingMaterial, 'Z', ModCompat.minicioSeeds }));
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(modIngot.getItem(), ConfigCrafting.outPutAwakenedDraconium, modIngot.getItemDamage()), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.AwakenedDraconiumEssence }));
+            GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(ModCompat.AwakenedDraconiumEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', ModCompat.AwakenedDraconiumSeeds }));
+            OreDictionary.registerOre("awakenedDraconiumMaterial", new ItemStack(ModCompat.AwakenedDraconiumEssence));
         }
     }
     

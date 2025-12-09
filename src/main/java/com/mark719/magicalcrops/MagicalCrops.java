@@ -13,7 +13,7 @@ import com.mark719.magicalcrops.worldgen.*;
 import net.minecraftforge.common.*;
 import com.mark719.magicalcrops.events.*;
 
-@Mod(modid = "magicalcrops", name = "Magical Crops Reforged", version = "1.0.0", dependencies = "after:appliedenergistics2;after:Mekanism")
+@Mod(modid = "magicalcrops", name = "Magical Crops Reforged", version = "1.0.0", dependencies = "after:appliedenergistics2;after:Mekanism;after:DraconicEvolution")
 public class MagicalCrops
 {
     @Mod.Instance("magicalcrops")

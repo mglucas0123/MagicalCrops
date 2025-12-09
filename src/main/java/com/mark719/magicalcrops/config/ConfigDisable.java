@@ -70,6 +70,7 @@ public class ConfigDisable
     public static boolean SIGNALUM;
     public static boolean STEEL;
     public static boolean TERRASTEEL;
+    public static boolean AWAKENED_DRACONIUM;
     
     public static void init(final File configFile) {
         final Configuration config = new Configuration(configFile);
@@ -136,6 +137,7 @@ public class ConfigDisable
         ConfigDisable.SIGNALUM = config.get(ConfigDisable.MOD, "SIGNALUM CROP", true).getBoolean();
         ConfigDisable.STEEL = config.get(ConfigDisable.MOD, "STEEL CROP", true).getBoolean();
         ConfigDisable.TERRASTEEL = config.get(ConfigDisable.MOD, "TERRASTEEL CROP", true).getBoolean();
+        ConfigDisable.AWAKENED_DRACONIUM = config.get(ConfigDisable.MOD, "AWAKENED DRACONIUM CROP", true).getBoolean();
         config.save();
     }
     

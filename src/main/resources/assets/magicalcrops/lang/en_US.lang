@@ -128,6 +128,7 @@ tile.SaltpeterCrop.name=Saltpeter Crop
 tile.SignalumCrop.name=Signalum Crop
 tile.SteelCrop.name=Steel Crop
 tile.TerrasteelCrop.name=Terrasteel Crop
+tile.AwakenedDraconiumCrop.name=Awakened Draconium Crop
 
 tile.CropAbsorption.name=Absorption Crop
 tile.CropFireResistance.name=Fire Resistance Crop
@@ -237,6 +238,7 @@ item.SaltpeterEssence.name=Saltpeter Essence
 item.SignalumEssence.name=Signalum Essence
 item.SteelEssence.name=Steel Essence
 item.TerrasteelEssence.name=Terrasteel Essence
+item.AwakenedDraconiumEssence.name=Awakened Draconium Essence
 
 item.InfusionStoneWeak.name=Weak Infusion Stone
 item.InfusionStoneRegular.name=Regular Infusion Stone
@@ -298,6 +300,7 @@ item.SaltpeterSeeds.name=Saltpeter Seeds
 item.SignalumSeeds.name=Signalum Seeds
 item.SteelSeeds.name=Steel Seeds
 item.TerrasteelSeeds.name=Terrasteel Seeds
+item.AwakenedDraconiumSeeds.name=Awakened Draconium Seeds
 
 item.BlazeSeeds.name=Blaze Seeds
 item.ChickenSeeds.name=Chicken Seeds

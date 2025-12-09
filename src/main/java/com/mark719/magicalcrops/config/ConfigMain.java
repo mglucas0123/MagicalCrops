@@ -42,10 +42,12 @@ public class ConfigMain
     public static boolean MOB_ESS_DROP;
     public static boolean APPLES;
     public static boolean ARMOUR_FLIGHT;
+    public static boolean HARD_MODE;
 
     public static void init(final File configFile) {
         final Configuration config = new Configuration(configFile);
         config.load();
+        ConfigMain.HARD_MODE = config.get("misc options", "Hard mode makes crops more expensive to craft, instead of ingots they use blocks, default false", false).getBoolean();
         ConfigMain.MOB_ESS_DROP = config.get("monster drop options", "Can mobs drop essence on death (universal switch for all mobs), default true", true).getBoolean();
         ConfigMain.DRAGON_ESS_DROP = config.get("monster drop options", "Ender dragon drops Zivicio essence when killed, default true", true).getBoolean();
         ConfigMain.WITHER_ESS_DROP = config.get("monster drop options", "Wither drops Zivicio essence when killed, default true", true).getBoolean();
@@ -87,7 +89,7 @@ public class ConfigMain
         ConfigMain.EXTRA_HOE = config.get("misc options", "Accio, Crucio, Imperio & Zivicio Hoes give extra drops when harvesting Minicio Crops, default true", true).getBoolean();
         ConfigMain.ESSENCE_INGOTS = config.get("misc options", "How many Essence ingots do you get when crafted, default 3, Max 64", 3).getInt();
         ConfigMain.APPLES = config.get("misc options", "Ultimate Diamond, Emerald and Ultimate Apple apples are active, default true", true).getBoolean();
-        ConfigMain.ARMOUR_FLIGHT = config.get("misc options", "A Armadura completa de Zivicio lhe da o Voo Criativo, default true", true).getBoolean();
+        ConfigMain.ARMOUR_FLIGHT = config.get("misc options", "Zivicio Armour gives creative flight, default true", true).getBoolean();
         config.save();
     }
 }
