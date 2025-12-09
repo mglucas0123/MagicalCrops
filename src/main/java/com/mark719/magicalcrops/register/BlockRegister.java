@@ -123,11 +123,11 @@ public class BlockRegister
         BlockRegisterHelper.registerBlock(MBlocks.ZivicioFurnaceActive);
         BlockRegisterHelper.registerBlock(MBlocks.UltimateFurnace);
         BlockRegisterHelper.registerBlock(MBlocks.UltimateFurnaceActive);
-        GameRegistry.registerBlock(MBlocks.EssenceStorage, (Class)ItemBlockEssenceStorage.class, "essence_storage");
-        GameRegistry.registerBlock(MBlocks.EssenceBrick, (Class)ItemBlockEssenceBrick.class, "essence_brick");
-        GameRegistry.registerBlock(MBlocks.EssenceBlock, (Class)ItemBlockEssenceBlock.class, "essence_block");
-        GameRegistry.registerBlock(MBlocks.EssenceBrick2, (Class)ItemBlockEssenceBrick2.class, "essence_brick2");
-        GameRegistry.registerBlock(MBlocks.EssenceSquare, (Class)ItemBlockEssenceSquare.class, "essence_Square");
-        GameRegistry.registerBlock(MBlocks.EssenceLamp, (Class)ItemBlockEssenceLamp.class, "essence_lamp");
+        GameRegistry.registerBlock(MBlocks.EssenceStorage, ItemBlockEssenceStorage.class, "essence_storage");
+        GameRegistry.registerBlock(MBlocks.EssenceBrick, ItemBlockEssenceBrick.class, "essence_brick");
+        GameRegistry.registerBlock(MBlocks.EssenceBlock, ItemBlockEssenceBlock.class, "essence_block");
+        GameRegistry.registerBlock(MBlocks.EssenceBrick2, ItemBlockEssenceBrick2.class, "essence_brick2");
+        GameRegistry.registerBlock(MBlocks.EssenceSquare, ItemBlockEssenceSquare.class, "essence_Square");
+        GameRegistry.registerBlock(MBlocks.EssenceLamp, ItemBlockEssenceLamp.class, "essence_lamp");
     }
 }

@@ -6,6 +6,7 @@ import net.minecraft.init.*;
 import net.minecraftforge.oredict.*;
 import net.minecraft.item.crafting.*;
 import com.mark719.magicalcrops.handlers.*;
+import com.mark719.magicalcrops.blocks.BlockEssenceBlock;
 import com.mark719.magicalcrops.config.*;
 
 public class SeedRecipes
@@ -52,115 +53,93 @@ public class SeedRecipes
     static ItemStack endermanSeeds;
     
     public static void loadRecipes() {
+
+        // Minicio Seed Recipe
         GameRegistry.addRecipe(new ItemStack(MSeeds.MinicioSeeds, 1), new Object[] { "XXX", "XYX", "XXX", 'X', SeedRecipes.minicioEssence, 'Y', Items.wheat_seeds });
+            
+        // Seed Recipes - Normal Mode (Don't have block and item form, or only item form)
+        registerSeedRecipe(new ItemStack(MSeeds.DyeSeeds, SeedRecipes.seedOutPut), SeedRecipes.accioEssence, SeedRecipes.allDye, SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.WaterSeeds, SeedRecipes.seedOutPut), SeedRecipes.accioEssence, Items.water_bucket, SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.FireSeeds, SeedRecipes.seedOutPut), SeedRecipes.accioEssence, Items.lava_bucket, SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.EarthSeeds, SeedRecipes.seedOutPut), SeedRecipes.accioEssence, Blocks.dirt, SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.AirSeeds, SeedRecipes.seedOutPut), SeedRecipes.accioEssence, Items.glass_bottle, SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.NatureSeeds, SeedRecipes.seedOutPut), SeedRecipes.accioEssence, "natureMaterial", SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.ExperienceSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, SeedRecipes.enchantedBook, SeedRecipes.minicioSeed);        
+        registerSeedRecipe(new ItemStack(MSeeds.ObsidianSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, Blocks.obsidian, SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.NetherSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, "netherMaterial", SeedRecipes.minicioSeed);
+        registerSeedRecipe(new ItemStack(MSeeds.CowSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, Items.leather, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.PigSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, Items.porkchop, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.ChickenSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, Items.egg, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.SheepSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, Blocks.wool, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.CreeperSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.gunpowder, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.BlazeSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.blaze_rod, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.EndermanSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.ender_pearl, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.SkeletonSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.bone, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.SlimeSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.slime_ball, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.SpiderSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.spider_eye, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.GhastSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.ghast_tear, SeedRecipes.minicioSeeds);
+        registerSeedRecipe(new ItemStack(MSeeds.WitherSeeds, SeedRecipes.seedOutPut), SeedRecipes.zivicioEssence, new ItemStack(Items.skull, 1, 1), SeedRecipes.skeletonSeeds);
         
-        Object coalMaterial = Items.coal;
-        if (ConfigMain.HARD_MODE) {
-            coalMaterial = Blocks.coal_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.CoalSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.accioEssence, 'Y', coalMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        GameRegistry.addRecipe(new ItemStack(MSeeds.DyeSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.accioEssence, 'Y', SeedRecipes.allDye, 'Z', SeedRecipes.minicioSeed });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.WaterSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.accioEssence, 'Y', Items.water_bucket, 'Z', SeedRecipes.minicioSeed });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.FireSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.accioEssence, 'Y', Items.lava_bucket, 'Z', SeedRecipes.minicioSeed });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.EarthSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.accioEssence, 'Y', Blocks.dirt, 'Z', SeedRecipes.minicioSeed });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.AirSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.accioEssence, 'Y', Items.glass_bottle, 'Z', SeedRecipes.minicioSeed });
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MSeeds.NatureSeeds, SeedRecipes.seedOutPut), new Object[] {"YXY", "XZX", "YXY", 'X', SeedRecipes.accioEssence, 'Y', "natureMaterial", 'Z', SeedRecipes.minicioSeed}));
-        
-        Object redstoneMaterial = Items.redstone;
-        if (ConfigMain.HARD_MODE) {
-            redstoneMaterial = Blocks.redstone_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.RedstoneSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', redstoneMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        Object glowstoneMaterial = Items.glowstone_dust;
-        if (ConfigMain.HARD_MODE) {
-            glowstoneMaterial = Blocks.glowstone;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.GlowstoneSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', glowstoneMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        GameRegistry.addRecipe(new ItemStack(MSeeds.ObsidianSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', Blocks.obsidian, 'Z', SeedRecipes.minicioSeed });
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MSeeds.NetherSeeds, SeedRecipes.seedOutPut), new Object[] {"YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', "netherMaterial", 'Z', SeedRecipes.minicioSeed}));
-        
-        Object ironMaterial = Items.iron_ingot;
-        if (ConfigMain.HARD_MODE) {
-            ironMaterial = Blocks.iron_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.IronSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', ironMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        Object goldMaterial = Items.gold_ingot;
-        if (ConfigMain.HARD_MODE) {
-            goldMaterial = Blocks.gold_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.GoldSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', goldMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        Object lapisMaterial = new ItemStack(Items.dye, 1, 4);
-        if (ConfigMain.HARD_MODE) {
-            lapisMaterial = Blocks.lapis_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.LapisSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', lapisMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        GameRegistry.addRecipe(new ItemStack(MSeeds.ExperienceSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Z', SeedRecipes.minicioSeed, 'Y', SeedRecipes.enchantedBook });
-        
-        Object quartzMaterial = Items.quartz;
-        if (ConfigMain.HARD_MODE) {
-            quartzMaterial = Blocks.quartz_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.QuartzSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', quartzMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        Object diamondMaterial = Items.diamond;
-        if (ConfigMain.HARD_MODE) {
-            diamondMaterial = Blocks.diamond_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.DiamondSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.zivicioEssence, 'Y', diamondMaterial, 'Z', SeedRecipes.minicioSeed });
-        
-        Object emeraldMaterial = Items.emerald;
-        if (ConfigMain.HARD_MODE) {
-            emeraldMaterial = Blocks.emerald_block;
-        }
-        GameRegistry.addRecipe(new ItemStack(MSeeds.EmeraldSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.zivicioEssence, 'Y', emeraldMaterial, 'Z', SeedRecipes.minicioSeed });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.CowSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', Items.leather, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.PigSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', Items.porkchop, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.ChickenSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', Items.egg, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.SheepSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.crucioEssence, 'Y', Blocks.wool, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.CreeperSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', Items.gunpowder, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.BlazeSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', Items.blaze_rod, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.EndermanSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', Items.ender_pearl, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.SkeletonSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', Items.bone, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.SlimeSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', Items.slime_ball, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.SpiderSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', Items.spider_eye, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.GhastSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.imperioEssence, 'Y', Items.ghast_tear, 'Z', SeedRecipes.minicioSeeds });
-        GameRegistry.addRecipe(new ItemStack(MSeeds.WitherSeeds, SeedRecipes.seedOutPut), new Object[] { "YXY", "XZX", "YXY", 'X', SeedRecipes.zivicioEssence, 'Y', new ItemStack(Items.skull, 1, 1), 'Z', SeedRecipes.skeletonSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.AirEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.airSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.CoalEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.coalSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.DiamondEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.diamondSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.DyeEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.dyeSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.EarthEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.earthSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.EmeraldEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.emeraldSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.ExperienceEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.experienceSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.FireEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.fireSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.GlowstoneEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.glowstoneSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.GoldEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.goldSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.IronEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.ironSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.LapisEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.lapisSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.NatureEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.natureSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.NetherEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.netherSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.ObsidianEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.obsidianSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.QuartzEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.quartzSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.RedstoneEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.redstoneSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.WaterEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.waterSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.CowEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.cowSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.ChickenEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.chickenSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.SheepEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.sheepSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.PigEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.pigSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.CreeperEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.creeperSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.BlazeEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.blazeSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.EndermanEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.endermanSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.SkeletonEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.skeletonSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.SlimeEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.slimeSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.SpiderEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.spiderSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.GhastEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.ghastSeeds });
-        GameRegistry.addRecipe(new ItemStack(Essence.WitherEssence, 1), new Object[] { "XXX", "XXX", "XXX", 'X', SeedRecipes.witherSeeds });
+        // Hard Seed Recipes - Normal and Hard Mode (Have both block and item form, use block form in hard mode)
+        registerHardModeRecipe(new ItemStack(MSeeds.CoalSeeds, SeedRecipes.seedOutPut), SeedRecipes.accioEssence, Items.coal, Blocks.coal_block, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.RedstoneSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, Items.redstone, Blocks.redstone_block, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.GlowstoneSeeds, SeedRecipes.seedOutPut), SeedRecipes.crucioEssence, Items.glowstone_dust, Blocks.glowstone, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.IronSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.iron_ingot, Blocks.iron_block, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.GoldSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.gold_ingot, Blocks.gold_block, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.LapisSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, new ItemStack(Items.dye, 1, 4), Blocks.lapis_block, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.QuartzSeeds, SeedRecipes.seedOutPut), SeedRecipes.imperioEssence, Items.quartz, Blocks.quartz_block, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.DiamondSeeds, SeedRecipes.seedOutPut), SeedRecipes.zivicioEssence, Items.diamond, Blocks.diamond_block, SeedRecipes.minicioSeed);
+        registerHardModeRecipe(new ItemStack(MSeeds.EmeraldSeeds, SeedRecipes.seedOutPut), SeedRecipes.zivicioEssence, Items.emerald, Blocks.emerald_block, SeedRecipes.minicioSeed);
+
+        // Seed to Essence Recipes - 9 Seeds = 1 Essence
+        registerSeedToEssenceRecipe(SeedRecipes.airSeeds, new ItemStack(Essence.AirEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.coalSeeds, new ItemStack(Essence.CoalEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.diamondSeeds, new ItemStack(Essence.DiamondEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.dyeSeeds, new ItemStack(Essence.DyeEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.earthSeeds, new ItemStack(Essence.EarthEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.emeraldSeeds, new ItemStack(Essence.EmeraldEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.experienceSeeds, new ItemStack(Essence.ExperienceEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.fireSeeds, new ItemStack(Essence.FireEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.glowstoneSeeds, new ItemStack(Essence.GlowstoneEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.goldSeeds, new ItemStack(Essence.GoldEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.ironSeeds, new ItemStack(Essence.IronEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.lapisSeeds, new ItemStack(Essence.LapisEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.natureSeeds, new ItemStack(Essence.NatureEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.netherSeeds, new ItemStack(Essence.NetherEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.obsidianSeeds, new ItemStack(Essence.ObsidianEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.quartzSeeds, new ItemStack(Essence.QuartzEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.redstoneSeeds, new ItemStack(Essence.RedstoneEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.waterSeeds, new ItemStack(Essence.WaterEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.cowSeeds, new ItemStack(Essence.CowEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.chickenSeeds, new ItemStack(Essence.ChickenEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.sheepSeeds, new ItemStack(Essence.SheepEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.pigSeeds, new ItemStack(Essence.PigEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.creeperSeeds, new ItemStack(Essence.CreeperEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.blazeSeeds, new ItemStack(Essence.BlazeEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.endermanSeeds, new ItemStack(Essence.EndermanEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.skeletonSeeds, new ItemStack(Essence.SkeletonEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.slimeSeeds, new ItemStack(Essence.SlimeEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.spiderSeeds, new ItemStack(Essence.SpiderEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.ghastSeeds, new ItemStack(Essence.GhastEssence, 1));
+        registerSeedToEssenceRecipe(SeedRecipes.witherSeeds, new ItemStack(Essence.WitherEssence, 1));
+    }
+
+    private static void registerSeedRecipe(ItemStack result, Item essence, Object material, ItemStack seed) {
+        registerHardModeRecipe(result, essence, material, material, seed);
+    }
+
+    private static void registerHardModeRecipe(ItemStack result, Item essence, Object normalMaterial, Object hardMaterial, ItemStack seed) {
+        Object material = ConfigMain.HARD_MODE ? hardMaterial : normalMaterial;
+        GameRegistry.addRecipe(result, new Object[] {
+            "YXY", "XZX", "YXY",
+            'X', essence,
+            'Y', material,
+            'Z', seed
+        });
+    }
+
+    private static void registerSeedToEssenceRecipe(ItemStack seed, ItemStack essence) {
+        GameRegistry.addShapelessRecipe(essence, new Object[] { seed });
     }
     
     static {
